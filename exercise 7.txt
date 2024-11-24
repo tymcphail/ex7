@@ -1,0 +1,79 @@
+
+Exercise 7:
+
+Ty Mcphail
+
+3/22/24, 12:45 PM 
+
+
+identify the least popular selling item based off of total revenue, as well as the most and least expensive product.
+Total the amount of products with "dog" category, as well as the average price of these products
+caclulate the average credit limit of all customers, and retrieve the zipcode of the highest and lowest credit limit customers.
+
+1.
+
+SELECT SUM(SALES) AS TOTAL_REVENUE, (PROD_SALES/TOTAL_REVENUE) AS SALES_STAT
+
+FROM SALES
+
+ORDER SALES_STAT BY DESC
+
+LIMIT 1;
+
+ 
+
+SELECT PRODUCT_ID, PRODUCT_NAME, PRICE
+
+FROM PRODUCTS
+
+ORDER BY PRICE DESC
+
+LIMIT 1;
+
+ 
+
+SELECT PRODUCT_ID, PRODUCT_NAME, PRICE
+
+FROM PRODUCTS
+
+ORDER BY PRICE ASC
+
+LIMIT 1;
+
+ 
+
+2.
+
+SELECT COUNT (PRODUCT_ID) AS TOTAL_PRODUCTS, AVG(PRICE) AS AVG_PRICE
+
+FROM PRODUCTS
+
+WHERE CATEGORY = 'DOG';
+
+ 
+
+3.
+
+SELECT AVG (CREDIT_LIMIT) AS AVG_CREDIT_LIMIT,
+
+FROM CUSTOMERS;
+
+ 
+
+SELECT ZIP
+
+FROM CUSTOMERS
+
+ORDER BY CREDIT_LIMIT DESC
+
+LIMIT 1;
+
+ 
+
+SELECT ZIP
+
+FROM CUSTOMERS
+
+ORDER BY CREDIT_LIMIT ASC
+
+LIMIT 1;
